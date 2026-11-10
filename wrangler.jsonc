@@ -1,0 +1,34 @@
+{
+  "$schema": "node_modules/wrangler/config-schema.json",
+  "name": "dalslandskoren",
+  "main": "worker/index.tsx",
+  "compatibility_date": "2026-11-10",
+  "dev": { "host": "127.0.0.1:8787", "upstream_protocol": "http", "port": 8787 },
+  "workers_dev": false,
+  "preview_urls": false,
+  "routes": [
+    { "pattern": "dalslandskoren.se", "custom_domain": true },
+    { "pattern": "www.dalslandskoren.se", "custom_domain": true },
+    { "pattern": "admin.dalslandskoren.se", "custom_domain": true }
+  ],
+  "assets": {
+    "directory": "./dist",
+    "binding": "ASSETS",
+    "run_worker_first": true,
+    "html_handling": "none",
+    "not_found_handling": "none"
+  },
+  "d1_databases": [{
+    "binding": "DB",
+    "database_name": "dalslandskoren-content",
+    "database_id": "00000000-0000-0000-0000-000000000000",
+    "migrations_dir": "migrations"
+  }],
+  "vars": {
+    "PUBLIC_ORIGIN": "https://dalslandskoren.se",
+    "ADMIN_ORIGIN": "https://admin.dalslandskoren.se",
+    "ACCESS_TEAM_DOMAIN": "",
+    "ACCESS_AUD": "",
+    "EDITOR_EMAILS": "dalslandskorenblaklang@gmail.com"
+  }
+}

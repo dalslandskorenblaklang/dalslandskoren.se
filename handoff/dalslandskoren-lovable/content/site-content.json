@@ -1,0 +1,63 @@
+{
+  "locale": "sv-SE",
+  "brand": {
+    "name": "Dalslandskören",
+    "logo": "/assets/brand/dbk-circle-transparent.png"
+  },
+  "navigation": [
+    { "label": "Hem", "href": "#hem" },
+    { "label": "Kontakt", "href": "#kontakt" }
+  ],
+  "hero": {
+    "id": "hem",
+    "title": "Dalslandskören",
+    "subtitle": "Sång, klang och gemenskap.",
+    "image": "/assets/images/hero-choir.webp",
+    "imageAlt": "Illustrativ konceptbild av en kör utomhus",
+    "imageIsConcept": true
+  },
+  "about": {
+    "id": "om-oss",
+    "title": "Om oss",
+    "text": "Vi möts i musiken och skapar klang tillsammans. Välkommen att upptäcka Dalslandskören, våra konserter och möjligheten att sjunga med oss."
+  },
+  "concerts": {
+    "id": "konserter",
+    "title": "Kommande konsert",
+    "emptyState": "Här presenterar vi våra kommande konserter. Datum och plats meddelas snart.",
+    "items": []
+  },
+  "openRehearsal": {
+    "id": "oppet-rep",
+    "title": "Öppet rep",
+    "text": "Nyfiken på att sjunga med oss? Hör av dig för att få veta mer om möjligheten att besöka en repetition.",
+    "cta": { "label": "Kontakt", "href": "#kontakt" }
+  },
+  "audition": {
+    "id": "uppsjungning",
+    "title": "Boka uppsjungning",
+    "text": "Vill du bli en del av Dalslandskören? Kontakta oss för att få veta mer om uppsjungning.",
+    "cta": { "label": "Kontakt", "href": "#kontakt" },
+    "bookingUrl": null
+  },
+  "contact": {
+    "id": "kontakt",
+    "title": "Kontakt",
+    "intro": "Vill du veta mer om kören, våra konserter eller hur du kan sjunga med oss?",
+    "email": null,
+    "instagramUrl": null,
+    "emptyState": "Kontaktuppgifter kommer snart."
+  },
+  "editorial": {
+    "copyStatus": "editable-draft",
+    "confirmedFacts": ["Choir name: Dalslandskören", "Owner-selected logo file"],
+    "needsConfirmation": [
+      "Choir description, repertoire, location and any university affiliation",
+      "Concert dates, venues and ticket links",
+      "Open rehearsal arrangements and audition process",
+      "Contact email and social profile URL",
+      "Real choir photograph to replace the concept hero"
+    ],
+    "renderEditorialNotes": false
+  }
+}

@@ -1,0 +1,4 @@
+# Copy to .dev.vars for local development only. Never set this flag in production.
+LOCAL_EDITOR=true
+# Optional, server-to-server editing only; generate a long random value if needed.
+# SITE_CONTENT_API_KEY=

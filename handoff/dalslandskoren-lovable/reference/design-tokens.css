@@ -1,0 +1,44 @@
+/* Dalslandskören / Forget-me-not design primitives
+   All variables are prefixed. Replace colors freely in one place. */
+:root {
+  --dbk-ink: #142754;
+  --dbk-midnight: #10234c;
+  --dbk-deep-blue: #294a7b;
+  --dbk-cornflower: #537bb8;
+  --dbk-sky: #7fa8e8;
+  --dbk-powder: #dbe6f6;
+  --dbk-ice: #ebf1fa;
+  --dbk-mist: #f4f7fb;
+  --dbk-white: #ffffff;
+  --dbk-flower-yellow: #efca50;
+  --dbk-sage: #79987a;
+  --dbk-border: #b7cbe5;
+
+  --dbk-font-display: 'Cormorant Garamond', 'Iowan Old Style', Georgia, serif;
+  --dbk-font-body: 'Baskerville', 'Palatino Linotype', Georgia, serif;
+  --dbk-font-ui: 'Inter', 'Segoe UI', Arial, sans-serif;
+  --dbk-shadow: 0 18px 48px rgba(20,39,84,.09);
+  --dbk-radius-card: 20px;
+  --dbk-radius-small: 12px;
+  --dbk-space-1: 6px;
+  --dbk-space-2: 12px;
+  --dbk-space-3: 18px;
+  --dbk-space-4: 26px;
+  --dbk-space-5: 38px;
+  --dbk-space-6: 56px;
+  --dbk-max-content: 1180px;
+}
+
+/* Opt-in utility for soft-background sections */
+.dbk-surface {
+  color: var(--dbk-ink);
+  background: linear-gradient(130deg, #f7f9fd 0%, #e5edf9 100%);
+}
+.dbk-section-divider {
+  display: block;
+  width: 54px;
+  height: 3px;
+  background: var(--dbk-cornflower);
+  border: 0;
+  margin: 22px 0;
+}

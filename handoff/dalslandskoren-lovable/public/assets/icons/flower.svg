@@ -1,0 +1,4 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="64" height="64" viewBox="0 0 64 64" role="img" aria-label="outline forget-me-not icon">
+<defs></defs>
+<g fill="none" stroke="#142754" stroke-width="2.2" stroke-linejoin="round"><ellipse cx="32" cy="19" rx="8" ry="13" transform="rotate(0 32 32)"/><ellipse cx="32" cy="19" rx="8" ry="13" transform="rotate(72 32 32)"/><ellipse cx="32" cy="19" rx="8" ry="13" transform="rotate(144 32 32)"/><ellipse cx="32" cy="19" rx="8" ry="13" transform="rotate(216 32 32)"/><ellipse cx="32" cy="19" rx="8" ry="13" transform="rotate(288 32 32)"/><circle cx="32" cy="32" r="6" fill="#EFC94E" stroke="#142754"/></g>
+</svg>

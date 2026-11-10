@@ -1,0 +1,349 @@
+{
+  "name": "Dalslandskören — Lovable handoff",
+  "version": "1.0",
+  "preparedOn": "2026-11-09",
+  "sourceArchives": [
+    "dalslandskoren-assets.zip",
+    "Dalslandskoren_Forget-Me-Not_Design_Kit.zip"
+  ],
+  "editorialSource": "Pasted text.txt — Website breakdown: Dalslandskören — Harmony in Blue (condensed, not copied as instructions)",
+  "selectedLogo": "public/assets/brand/dbk-circle-transparent.png",
+  "publicAssetCount": 32,
+  "curation": [
+    "The unzipped source folders were checked against both supplied archives; all files matched.",
+    "Selected logo preserved byte-for-byte; all other logos, favicon alternatives and concept monograms omitted.",
+    "WebP photos selected over duplicate JPG files; SVG graphics selected over PNG exports.",
+    "Design-kit line icons selected as one consistent family; duplicate website-pack icons omitted.",
+    "Raster and SVG button pictures omitted in favor of accessible HTML controls.",
+    "Legacy HTML/CSS recipes, large standalone style guide, duplicate previews, old manifests and README instructions omitted; their useful intent is condensed in the brief.",
+    "Two representative visual references retained; original detailed breakdown omitted to keep context small."
+  ],
+  "assets": [
+    {
+      "path": "public/assets/brand/dbk-circle-transparent.png",
+      "role": "required-selected-logo",
+      "sourcePack": "dalslandskoren-assets.zip",
+      "sourcePath": "dbk_website_assets/logos/dbk-circle-transparent.png",
+      "bytes": 368578,
+      "sha256": "01f0c286569f0ecdcf06efafc3ba2e08b0cb4ec8f49f40de8c92e61e9d45bac2",
+      "width": 768,
+      "height": 768,
+      "mode": "RGBA"
+    },
+    {
+      "path": "public/assets/images/concert-forgetmenots.webp",
+      "role": "optional-floral-image",
+      "sourcePack": "dalslandskoren-assets.zip",
+      "sourcePath": "dbk_website_assets/images/concert-forgetmenots.webp",
+      "bytes": 31198,
+      "sha256": "70653f788683b12988cba35b4e1570d2abbb29624451341877550152c9035392",
+      "width": 2000,
+      "height": 500,
+      "mode": "RGB"
+    },
+    {
+      "path": "public/assets/images/forget-me-not-photo.webp",
+      "role": "optional-floral-image",
+      "sourcePack": "dalslandskoren-assets.zip",
+      "sourcePath": "dbk_website_assets/images/forget-me-not-photo.webp",
+      "bytes": 43798,
+      "sha256": "784b123188594f7657954c08a8a22d78f63dfc129e8b66f1bd5d0775a31f923b",
+      "width": 1400,
+      "height": 742,
+      "mode": "RGB"
+    },
+    {
+      "path": "public/assets/images/hero-choir.webp",
+      "role": "concept-hero-replace-before-launch",
+      "sourcePack": "dalslandskoren-assets.zip",
+      "sourcePath": "dbk_website_assets/images/hero-choir.webp",
+      "bytes": 188754,
+      "sha256": "53c45342dacc97f0ecfef24a85f34b3b0222d11fcfc3413e411ecf9403993c3c",
+      "width": 2400,
+      "height": 750,
+      "mode": "RGB"
+    },
+    {
+      "path": "public/assets/backgrounds/about-wave.svg",
+      "role": "optional-background",
+      "sourcePack": "dalslandskoren-assets.zip",
+      "sourcePath": "dbk_website_assets/backgrounds/about-wave.svg",
+      "bytes": 420,
+      "sha256": "5c6d32a26984f7a4484a766a3001ddb68f2e7fe18c5b6e2f58feb08368ef0e13",
+      "viewBox": "0 0 1600 470"
+    },
+    {
+      "path": "public/assets/backgrounds/card-blue.svg",
+      "role": "optional-background",
+      "sourcePack": "dalslandskoren-assets.zip",
+      "sourcePath": "dbk_website_assets/backgrounds/card-blue.svg",
+      "bytes": 514,
+      "sha256": "79d7312e88e7e1a4eaab15f6a5c3cf1c5f07cc43b48106b5d0abda562df144d3",
+      "viewBox": "0 0 1600 310"
+    },
+    {
+      "path": "public/assets/backgrounds/card-pale.svg",
+      "role": "optional-background",
+      "sourcePack": "dalslandskoren-assets.zip",
+      "sourcePath": "dbk_website_assets/backgrounds/card-pale.svg",
+      "bytes": 514,
+      "sha256": "dc1d2f3197be1ac09e25966ce67ed46a8b8d788a7f28c9527bf945653e599989",
+      "viewBox": "0 0 1600 310"
+    },
+    {
+      "path": "public/assets/backgrounds/footer-soft-blue.svg",
+      "role": "optional-background",
+      "sourcePack": "dalslandskoren-assets.zip",
+      "sourcePath": "dbk_website_assets/backgrounds/footer-soft-blue.svg",
+      "bytes": 329,
+      "sha256": "7ee7533a4db45fe86e3a430f7870dd47fb1fa73f9758dfe8abd9bf265f71449e",
+      "viewBox": "0 0 1600 220"
+    },
+    {
+      "path": "public/assets/backgrounds/hero-overlay.svg",
+      "role": "optional-background",
+      "sourcePack": "dalslandskoren-assets.zip",
+      "sourcePath": "dbk_website_assets/backgrounds/hero-overlay.svg",
+      "bytes": 374,
+      "sha256": "7a9bea6608ad2c7172866a3c52167df471a002b240f2866029ff72b1984d7211",
+      "viewBox": "0 0 2400 750"
+    },
+    {
+      "path": "public/assets/backgrounds/nav-underline.svg",
+      "role": "optional-background",
+      "sourcePack": "dalslandskoren-assets.zip",
+      "sourcePath": "dbk_website_assets/backgrounds/nav-underline.svg",
+      "bytes": 140,
+      "sha256": "16554e9dacb5df5d575627080cc5c5506856ad22ee6e8d8757eabb6542da3f9b",
+      "viewBox": "0 0 68 4"
+    },
+    {
+      "path": "public/assets/backgrounds/section-rule.svg",
+      "role": "optional-background",
+      "sourcePack": "dalslandskoren-assets.zip",
+      "sourcePath": "dbk_website_assets/backgrounds/section-rule.svg",
+      "bytes": 158,
+      "sha256": "f9820d60e3e581b30635900f83042f92b16e06402e9d2f39a3e12dbcfd163d5d",
+      "viewBox": "0 0 1200 2"
+    },
+    {
+      "path": "public/assets/icons/arrow.svg",
+      "role": "optional-icons",
+      "sourcePack": "Dalslandskoren_Forget-Me-Not_Design_Kit.zip",
+      "sourcePath": "DBK-Forget-Me-Not-Kit/assets/icons/arrow.svg",
+      "bytes": 290,
+      "sha256": "f30523a35b8ba0754c203a7df5c9327cbee6e5581d2adfd3a34cf86a138aa5c9",
+      "viewBox": "0 0 64 64"
+    },
+    {
+      "path": "public/assets/icons/book.svg",
+      "role": "optional-icons",
+      "sourcePack": "Dalslandskoren_Forget-Me-Not_Design_Kit.zip",
+      "sourcePath": "DBK-Forget-Me-Not-Kit/assets/icons/book.svg",
+      "bytes": 364,
+      "sha256": "1d7e07fbbc6b39a62f08398ac69a049a0b275734da01736f57812cc1362aa859",
+      "viewBox": "0 0 64 64"
+    },
+    {
+      "path": "public/assets/icons/calendar.svg",
+      "role": "optional-icons",
+      "sourcePack": "Dalslandskoren_Forget-Me-Not_Design_Kit.zip",
+      "sourcePath": "DBK-Forget-Me-Not-Kit/assets/icons/calendar.svg",
+      "bytes": 346,
+      "sha256": "f0e510ae8bd9c9e47dce5572db1d0a2e970dbcda56a8bc2e2cf1a229a6d613fe",
+      "viewBox": "0 0 64 64"
+    },
+    {
+      "path": "public/assets/icons/choir.svg",
+      "role": "optional-icons",
+      "sourcePack": "Dalslandskoren_Forget-Me-Not_Design_Kit.zip",
+      "sourcePath": "DBK-Forget-Me-Not-Kit/assets/icons/choir.svg",
+      "bytes": 487,
+      "sha256": "d3b565c92a84d24a608eeb4b96d254035de8f037e12e460965628ed2c91bc862",
+      "viewBox": "0 0 64 64"
+    },
+    {
+      "path": "public/assets/icons/envelope.svg",
+      "role": "optional-icons",
+      "sourcePack": "Dalslandskoren_Forget-Me-Not_Design_Kit.zip",
+      "sourcePath": "DBK-Forget-Me-Not-Kit/assets/icons/envelope.svg",
+      "bytes": 329,
+      "sha256": "e0dac82fad0d5e35e38e347b41c6b8b826a1ff08141f6c2bf1ea99661b205b4f",
+      "viewBox": "0 0 64 64"
+    },
+    {
+      "path": "public/assets/icons/flower.svg",
+      "role": "optional-icons",
+      "sourcePack": "Dalslandskoren_Forget-Me-Not_Design_Kit.zip",
+      "sourcePath": "DBK-Forget-Me-Not-Kit/assets/icons/flower.svg",
+      "bytes": 650,
+      "sha256": "b5c84490b692026cd0d9d8471ac97a03ef5c9787055a659a33113bd7aefc96f0",
+      "viewBox": "0 0 64 64"
+    },
+    {
+      "path": "public/assets/icons/instagram.svg",
+      "role": "optional-icons",
+      "sourcePack": "Dalslandskoren_Forget-Me-Not_Design_Kit.zip",
+      "sourcePath": "DBK-Forget-Me-Not-Kit/assets/icons/instagram.svg",
+      "bytes": 390,
+      "sha256": "8b7107ea11736bbc810444d6278a9e8d1ea87294c54d5bce1d3cbfb82e33d571",
+      "viewBox": "0 0 64 64"
+    },
+    {
+      "path": "public/assets/icons/location.svg",
+      "role": "optional-icons",
+      "sourcePack": "Dalslandskoren_Forget-Me-Not_Design_Kit.zip",
+      "sourcePath": "DBK-Forget-Me-Not-Kit/assets/icons/location.svg",
+      "bytes": 356,
+      "sha256": "52617e5ef313c52caa40ca7c9da6e45411c8dcc81d08a3f83d12de56bf76bbb6",
+      "viewBox": "0 0 64 64"
+    },
+    {
+      "path": "public/assets/icons/microphone.svg",
+      "role": "optional-icons",
+      "sourcePack": "Dalslandskoren_Forget-Me-Not_Design_Kit.zip",
+      "sourcePath": "DBK-Forget-Me-Not-Kit/assets/icons/microphone.svg",
+      "bytes": 362,
+      "sha256": "db791482acfb7d846b3af1b8bae8625069b100a2dc19eb23795f2638f0ea33c0",
+      "viewBox": "0 0 64 64"
+    },
+    {
+      "path": "public/assets/icons/music-note.svg",
+      "role": "optional-icons",
+      "sourcePack": "Dalslandskoren_Forget-Me-Not_Design_Kit.zip",
+      "sourcePath": "DBK-Forget-Me-Not-Kit/assets/icons/music-note.svg",
+      "bytes": 424,
+      "sha256": "cd741d270bfe71e3b2e3b94000c50aa9147926538696e9e64f6e443c4bbb59cc",
+      "viewBox": "0 0 64 64"
+    },
+    {
+      "path": "public/assets/icons/ticket.svg",
+      "role": "optional-icons",
+      "sourcePack": "Dalslandskoren_Forget-Me-Not_Design_Kit.zip",
+      "sourcePath": "DBK-Forget-Me-Not-Kit/assets/icons/ticket.svg",
+      "bytes": 376,
+      "sha256": "239db2e905eb7c685ddd347b00ceb066b04c6fc3147f302425e902288c564ff8",
+      "viewBox": "0 0 64 64"
+    },
+    {
+      "path": "public/assets/illustrations/floral-divider.svg",
+      "role": "optional-illustrations",
+      "sourcePack": "Dalslandskoren_Forget-Me-Not_Design_Kit.zip",
+      "sourcePath": "DBK-Forget-Me-Not-Kit/assets/illustrations/floral-divider.svg",
+      "bytes": 8466,
+      "sha256": "879a9b4b18fd89f2bc877eda95737dcf8b6bce4e6506f41efac160bf1f177e1c",
+      "viewBox": "0 0 1200 105"
+    },
+    {
+      "path": "public/assets/illustrations/forget-me-not-bloom.svg",
+      "role": "optional-illustrations",
+      "sourcePack": "Dalslandskoren_Forget-Me-Not_Design_Kit.zip",
+      "sourcePath": "DBK-Forget-Me-Not-Kit/assets/illustrations/forget-me-not-bloom.svg",
+      "bytes": 3360,
+      "sha256": "78fb778548587def79b35dc44ec0d762e05b97ddfd7e0fed0fa9b3ebbfc3291d",
+      "viewBox": "0 0 240 240"
+    },
+    {
+      "path": "public/assets/illustrations/forget-me-not-bouquet.svg",
+      "role": "optional-illustrations",
+      "sourcePack": "Dalslandskoren_Forget-Me-Not_Design_Kit.zip",
+      "sourcePath": "DBK-Forget-Me-Not-Kit/assets/illustrations/forget-me-not-bouquet.svg",
+      "bytes": 112448,
+      "sha256": "ad592b25b0edd4a13fe8f63cf25fb07ba404e04bed95d4350b491f2bcfcdce02",
+      "viewBox": "0 0 710 540"
+    },
+    {
+      "path": "public/assets/illustrations/forget-me-not-sprig.svg",
+      "role": "optional-illustrations",
+      "sourcePack": "Dalslandskoren_Forget-Me-Not_Design_Kit.zip",
+      "sourcePath": "DBK-Forget-Me-Not-Kit/assets/illustrations/forget-me-not-sprig.svg",
+      "bytes": 38209,
+      "sha256": "d393c15d9fb62fa96c1803563f9f870e4a52d82967b95cb64c3a863f0e4ab18c",
+      "viewBox": "0 0 430 530"
+    },
+    {
+      "path": "public/assets/illustrations/line-art-floral-corner.svg",
+      "role": "optional-illustrations",
+      "sourcePack": "Dalslandskoren_Forget-Me-Not_Design_Kit.zip",
+      "sourcePath": "DBK-Forget-Me-Not-Kit/assets/illustrations/line-art-floral-corner.svg",
+      "bytes": 6857,
+      "sha256": "ccecf3c78eda39b5948fc76a9296c01291fd4855b4eb7789d505742d8919d363",
+      "viewBox": "0 0 380 400"
+    },
+    {
+      "path": "public/assets/patterns/flowering-border.svg",
+      "role": "optional-patterns",
+      "sourcePack": "Dalslandskoren_Forget-Me-Not_Design_Kit.zip",
+      "sourcePath": "DBK-Forget-Me-Not-Kit/assets/patterns/flowering-border.svg",
+      "bytes": 10898,
+      "sha256": "81162dd7975e044dee192c2cbd9bedee3a4cbe6d2c57917afc10fd3d9bd09f7d",
+      "viewBox": "0 0 500 130"
+    },
+    {
+      "path": "public/assets/patterns/music-staff-tile.svg",
+      "role": "optional-patterns",
+      "sourcePack": "Dalslandskoren_Forget-Me-Not_Design_Kit.zip",
+      "sourcePath": "DBK-Forget-Me-Not-Kit/assets/patterns/music-staff-tile.svg",
+      "bytes": 5854,
+      "sha256": "742b47f9d23c5fda1152c8c1eb6f461aaa09206282c9b1254effb45d24bd7946",
+      "viewBox": "0 0 560 135"
+    },
+    {
+      "path": "public/assets/patterns/scatter-tile.svg",
+      "role": "optional-patterns",
+      "sourcePack": "Dalslandskoren_Forget-Me-Not_Design_Kit.zip",
+      "sourcePath": "DBK-Forget-Me-Not-Kit/assets/patterns/scatter-tile.svg",
+      "bytes": 10616,
+      "sha256": "d6de1045e23d1df2521517ac4efb48aca9cf88d551a59a0ce2e1374ab9d291b6",
+      "viewBox": "0 0 260 240"
+    },
+    {
+      "path": "public/assets/patterns/soft-wave-background.svg",
+      "role": "optional-patterns",
+      "sourcePack": "Dalslandskoren_Forget-Me-Not_Design_Kit.zip",
+      "sourcePath": "DBK-Forget-Me-Not-Kit/assets/patterns/soft-wave-background.svg",
+      "bytes": 699,
+      "sha256": "6295f1a38b4f6bca80dfcad16b376784400b3fc8594891762193c535cc57fdb6",
+      "viewBox": "0 0 1440 420"
+    },
+    {
+      "path": "public/assets/patterns/tiny-blooms-tile.svg",
+      "role": "optional-patterns",
+      "sourcePack": "Dalslandskoren_Forget-Me-Not_Design_Kit.zip",
+      "sourcePath": "DBK-Forget-Me-Not-Kit/assets/patterns/tiny-blooms-tile.svg",
+      "bytes": 12007,
+      "sha256": "68f84fbdbebd15eaafa082bf5a566eab90c83b7791150e604746447487035164",
+      "viewBox": "0 0 320 220"
+    },
+    {
+      "path": "reference/design-tokens.css",
+      "role": "optional-token-reference",
+      "sourcePack": "Dalslandskoren_Forget-Me-Not_Design_Kit.zip",
+      "sourcePath": "DBK-Forget-Me-Not-Kit/css/tokens.css",
+      "bytes": 1211,
+      "sha256": "dc2af381053ad8d5e5bc2c962a1fe0ff28aa7966a1c922826ffbb4d4b4b7eb3e"
+    },
+    {
+      "path": "reference/visuals/forget-me-not-overview.png",
+      "role": "optional-visual-reference",
+      "sourcePack": "Dalslandskoren_Forget-Me-Not_Design_Kit.zip",
+      "sourcePath": "DBK-Forget-Me-Not-Kit/previews/kit-overview.png",
+      "bytes": 390538,
+      "sha256": "87c12bdf058cebcb0a096b7376a8c794365335a69e50ab2b7d2246f9fae831a4",
+      "width": 1540,
+      "height": 2015,
+      "mode": "RGB"
+    },
+    {
+      "path": "reference/visuals/harmony-in-blue.png",
+      "role": "optional-visual-reference",
+      "sourcePack": null,
+      "sourcePath": "Dalslandskören_ Harmony in Blue.png (Downloads)",
+      "bytes": 1676215,
+      "sha256": "8fa48e72e0447254095217d6569c3afb17fec82a20e0518a6cbed50aa039fe1b",
+      "width": 1024,
+      "height": 1536,
+      "mode": "RGB"
+    }
+  ]
+}

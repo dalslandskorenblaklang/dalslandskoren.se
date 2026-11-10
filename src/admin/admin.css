@@ -1,0 +1,51 @@
+.editor { min-height: 100vh; background: #f4f7fb; color: #142754; }
+.editor-header { display: flex; align-items: center; justify-content: space-between; gap: 1rem; padding: 1rem 4vw; border-bottom: 1px solid #d7e0ef; background: white; }
+.editor-header > a { display: flex; gap: .8rem; align-items: center; text-decoration: none; font-family: var(--font-serif); font-size: 1.5rem; line-height: 1.2; }
+.editor-header small { display: block; font-family: var(--font-sans); font-size: .75rem; letter-spacing: .08em; text-transform: uppercase; margin-top: .2rem; }
+.editor-header > div { display: flex; align-items: center; flex-wrap: wrap; gap: 1rem; font-size: .8rem; }
+.editor-main { max-width: 880px; margin: auto; padding: 3.5rem 1.25rem; }
+.editor-intro { margin-bottom: 2rem; }
+.editor-eyebrow { letter-spacing: .15em; font-size: .7rem; margin-bottom: .8rem; font-weight: 600; }
+.editor-intro h1 { font-style: italic; font-size: clamp(2.4rem, 6vw, 3.8rem); margin-bottom: 1rem; }
+.editor-intro > p:last-child, .editor-help, .editor-secondary > p { color: #4f6079; font-size: .92rem; }
+.editor-toolbar { position: sticky; top: 0; z-index: 50; display: flex; align-items: center; justify-content: space-between; gap: 1rem; padding: 1rem; margin: 0 -.2rem 1.5rem; border: 1px solid #d7e0ef; background: #fff; border-radius: 16px; box-shadow: 0 5px 20px #1427540d; }
+.editor-toolbar small { display: block; font-size: .7rem; color: #4f6079; }
+.editor-actions { display: flex; gap: .6rem; flex-wrap: wrap; }
+.editor button, .editor-preview-bar button { cursor: pointer; background: white; color: #142754; border: 1px solid #bdcde4; border-radius: 100px; padding: .6rem 1rem; font-size: .8rem; font-weight: 600; line-height: 1.4; }
+.editor button:hover, .editor-preview-bar button:hover { background: #e9eff8; }
+.editor button.editor-primary { background: #142754; border-color: #142754; color: white; }
+.editor button:disabled { opacity: .45; cursor: default; }
+.editor fieldset { border: 0; padding: 0; margin: 0; min-width: 0; }
+.editor-group { background: #fff; border: 1px solid #d7e0ef; border-radius: 16px; margin-bottom: 1rem; overflow: clip; }
+.editor-group summary { cursor: pointer; padding: 1.25rem 1.5rem; font-family: var(--font-serif); font-size: 1.7rem; list-style-position: inside; }
+.editor-group-body { padding: 0 1.5rem 1.5rem; }
+.editor-help { margin-bottom: 1.5rem; }
+.editor-field { display: flex; flex-direction: column; gap: .4rem; margin: 1rem 0; font-size: .85rem; font-weight: 600; }
+.editor-field small { color: #4f6079; font-weight: 400; font-size: .75rem; }
+.editor-field input, .editor-field textarea { width: 100%; min-width: 0; border: 1px solid #b7c7de; border-radius: 8px; padding: .75rem; background: #fafcff; color: #142754; font: inherit; font-weight: 400; }
+.editor-field textarea { resize: vertical; min-height: 6rem; }
+.editor-field [aria-invalid="true"] { border: 2px solid #a8262c; }
+.editor-checkbox { display: flex; gap: .7rem; align-items: center; font-size: .85rem; margin-top: 1rem; }
+.editor-checkbox input { width: 1rem; height: 1rem; }
+.editor-concert { background: #f4f7fb; border-radius: 12px; padding: 1rem; margin: 1rem 0; }
+.editor-concert h3 { font-size: 1.5rem; }
+.editor-message { border-radius: 12px; padding: 1rem 1.25rem; background: #e4efe8; margin-bottom: 1.5rem; font-size: .9rem; }
+.editor-error { background: #fbe9e7; color: #772025; }
+.editor-message ul { padding-left: 1.2rem; margin-top: .6rem; list-style-type: disc; }
+.editor-secondary { margin-top: 3rem; }
+.editor-secondary h2 { font-size: 2rem; }
+.editor-secondary > p { margin: .8rem 0 1.5rem; }
+.editor-versions { max-height: 24rem; overflow-y: auto; margin-top: 1rem; }
+.editor-versions > div { display: flex; gap: 1rem; align-items: center; justify-content: space-between; padding: 1rem 0; border-bottom: 1px solid #d7e0ef; }
+.editor-versions small { display: block; font-size: .7rem; overflow-wrap: anywhere; }
+.editor-footer { border-top: 1px solid #d7e0ef; padding: 1.5rem; text-align: center; font-size: .75rem; color: #4f6079; }
+.editor-preview-bar { position: sticky; top: 0; z-index: 60; display: flex; align-items: center; justify-content: space-between; gap: 1rem; background: #142754; color: white; padding: .6rem 1.25rem; font-size: .8rem; }
+@media (max-width: 550px) {
+  .editor-identity { display: none; }
+  .editor-header { padding: 1rem; }
+  .editor-main { padding: 2rem 1rem; }
+  .editor-toolbar { flex-direction: column; align-items: stretch; }
+  .editor-actions > button { flex: 1; }
+  .editor-group-body { padding: 0 1rem 1rem; }
+  .editor-versions > div { align-items: flex-start; }
+}
