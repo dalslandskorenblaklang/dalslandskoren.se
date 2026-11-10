@@ -105,7 +105,7 @@ This checks configuration, runs validation, applies remote D1 migrations and dep
 | `www.dalslandskoren.se` | Redirect to the public website |
 | `admin.dalslandskoren.se` | Access-protected editor |
 
-Cloudflare provisions DNS/certificates for Worker custom domains. Wait for them to become active. `workers.dev` and version preview URLs are disabled in this configuration. The admin page and admin APIs also reject requests without a valid token independently of the front-door policy.
+Cloudflare provisions DNS/certificates for Worker custom domains. Wait for them to become active. The production `workers.dev` address is enabled as a temporary working address while the Strato nameserver change propagates. Version preview URLs remain disabled. Set `workers_dev` to `false` and redeploy after the custom domain is verified if you want to remove the fallback address. The admin page and admin APIs also reject requests without a valid token independently of the front-door policy.
 
 Verify in a private browser window:
 
@@ -120,13 +120,15 @@ The supplied hero is still a labelled concept illustration. Replace it with an a
 
 ## 6. Connect GitHub for subsequent code deployments
 
+This integration is not connected at launch. Git pushes currently run verification only. Until connected, publish code changes from the authenticated maintainer terminal with `npm run deploy:public` while admin is locked.
+
 In the deployed Worker's **Settings → Build**, connect the private choir repository and choose `main` as the production branch. Restrict the GitHub installation to the intended repository.
 
 Use these commands:
 
 | Build setting | Value |
 | --- | --- |
-| Build command | `npm run deploy:check && npm run verify` |
+| Build command | `npm run deploy:check -- --public-only && npm run verify` while admin is locked; use `npm run deploy:check && npm run verify` after Access is configured |
 | Deploy command | `npm run db:remote && npx wrangler deploy` |
 | Root directory | Repository root |
 | Node version | 22 or newer supported LTS |

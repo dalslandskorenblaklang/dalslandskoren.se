@@ -8,7 +8,7 @@
     "upstream_protocol": "http",
     "port": 8787
   },
-  "workers_dev": false,
+  "workers_dev": true,
   "preview_urls": false,
   "routes": [
     {

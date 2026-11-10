@@ -7,9 +7,10 @@ The Lovable design, rebuilt as an independently hosted Swedish website with a vi
 - **Hosting:** Cloudflare Workers + static assets
 - **Content:** Cloudflare D1, with the last 50 published versions
 - **Login:** Cloudflare Access with email codes and an explicit editor allowlist
-- **Source and code deployments:** GitHub → Cloudflare Workers Builds
+- **Source and checks:** GitHub; GitHub Actions verifies pushes and pull requests
+- **Code deployments:** currently manual via Wrangler (`npm run deploy:public`); automatic Git deployment is not connected yet
 
-**Status:** publication in progress. Source has been pushed to `dalslandskorenblaklang/dalslandskoren.se`; the Cloudflare D1 database has been created, and the Cloudflare nameservers have been saved at Strato. Wrangler authorization, live deployment and editor sign-in are not yet complete. See [launch status](docs/LAUNCH.md).
+**Status:** deployed and verified at https://dalslandskoren.cvi-c27.workers.dev. The custom domains are attached, but public DNS still points to Strato while the nameserver change propagates. Admin remains locked, as requested. See [launch status](docs/LAUNCH.md).
 
 [Set up accounts, hosting and the Strato domain](docs/DEPLOYMENT.md) · [Swedish editing guide](docs/REDAKTOR.md) · [Architecture and API](docs/ARCHITECTURE.md)
 

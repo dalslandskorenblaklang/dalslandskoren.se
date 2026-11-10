@@ -1,0 +1,52 @@
+;;
+;; Domain:     dalslandskoren.se.
+;; Exported:   2026-11-10 11:09:32
+;;
+;; This file is intended for use for informational and archival
+;; purposes ONLY and MUST be edited before use on a production
+;; DNS server.  In particular, you must:
+;;   -- update the SOA record with the correct authoritative name server
+;;   -- update the SOA record with the contact e-mail address information
+;;   -- update the NS record(s) with the authoritative name servers for this domain.
+;;
+;; For further information, please consult the BIND documentation
+;; located on the following website:
+;;
+;; http://www.isc.org/
+;;
+;; And RFC 1035:
+;;
+;; http://www.ietf.org/rfc/rfc1035.txt
+;;
+;; Please note that we do NOT offer technical support for any use
+;; of this zone data, the BIND name server, or any other third-party
+;; DNS software.
+;;
+;; Use at your own risk.
+;; SOA Record
+dalslandskoren.se	3600	IN	SOA	eugene.ns.cloudflare.com. dns.cloudflare.com. 2054597557 10000 2400 604800 3600
+
+;; NS Records
+dalslandskoren.se.	86400	IN	NS	eugene.ns.cloudflare.com.
+dalslandskoren.se.	86400	IN	NS	sarah.ns.cloudflare.com.
+
+;; A Records
+dalslandskoren.se.	1	IN	A	217.160.0.154 ; cf_tags=cf-proxied:true
+
+;; AAAA Records
+dalslandskoren.se.	1	IN	AAAA	2001:8d8:100f:f000::200 ; cf_tags=cf-proxied:true
+
+;; CNAME Records
+autoconfig.dalslandskoren.se.	1	IN	CNAME	autoconfigure.strato.de. ; cf_tags=cf-proxied:true
+www.dalslandskoren.se.	1	IN	CNAME	dalslandskoren.se. ; cf_tags=cf-proxied:true
+
+;; MX Records
+*.dalslandskoren.se.	1	IN	MX	5 smtp.rzone.de.
+dalslandskoren.se.	1	IN	MX	5 smtp.rzone.de.
+
+;; SRV Records
+_autodiscover._tcp.dalslandskoren.se.	1	IN	SRV	0 100 443 autoconfigure.strato.de.
+
+;; TXT Records
+_dmarc.dalslandskoren.se.	1	IN	TXT	"v=DMARC1;p=reject;"
+_domainkey.dalslandskoren.se.	1	IN	TXT	"o=~; t=y; r=dkim@rzone.de"
