@@ -15,6 +15,7 @@
     "test:browser": "playwright test",
     "verify": "npm run check && npm test && npm run build && wrangler deploy --dry-run",
     "deploy": "npm run deploy:check && npm run verify && npm run db:remote && wrangler deploy",
+    "deploy:public": "npm run deploy:check -- --public-only && npm run verify && npm run db:remote && wrangler deploy",
     "deploy:check": "node scripts/check-deployment.mjs",
     "db:local": "wrangler d1 migrations apply DB --local",
     "db:remote": "wrangler d1 migrations apply DB --remote"

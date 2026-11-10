@@ -88,6 +88,8 @@ Reference: [email PIN login](https://developers.cloudflare.com/cloudflare-one/in
 
 ## 5. First deployment
 
+If Access onboarding is deferred, use `npm run deploy:public` instead. This requires both `ACCESS_TEAM_DOMAIN` and `ACCESS_AUD` to remain empty. The public website works, while the admin host and editor login stay closed. This does not bypass authentication or expose a local editor flag. When Access is ready, configure both values and use the normal `npm run deploy` command.
+
 After completing the configuration:
 
 ```sh
