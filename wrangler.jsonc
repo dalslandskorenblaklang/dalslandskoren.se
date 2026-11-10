@@ -3,13 +3,26 @@
   "name": "dalslandskoren",
   "main": "worker/index.tsx",
   "compatibility_date": "2026-11-10",
-  "dev": { "host": "127.0.0.1:8787", "upstream_protocol": "http", "port": 8787 },
+  "dev": {
+    "host": "127.0.0.1:8787",
+    "upstream_protocol": "http",
+    "port": 8787
+  },
   "workers_dev": false,
   "preview_urls": false,
   "routes": [
-    { "pattern": "dalslandskoren.se", "custom_domain": true },
-    { "pattern": "www.dalslandskoren.se", "custom_domain": true },
-    { "pattern": "admin.dalslandskoren.se", "custom_domain": true }
+    {
+      "pattern": "dalslandskoren.se",
+      "custom_domain": true
+    },
+    {
+      "pattern": "www.dalslandskoren.se",
+      "custom_domain": true
+    },
+    {
+      "pattern": "admin.dalslandskoren.se",
+      "custom_domain": true
+    }
   ],
   "assets": {
     "directory": "./dist",
@@ -18,17 +31,20 @@
     "html_handling": "none",
     "not_found_handling": "none"
   },
-  "d1_databases": [{
-    "binding": "DB",
-    "database_name": "dalslandskoren-content",
-    "database_id": "00000000-0000-0000-0000-000000000000",
-    "migrations_dir": "migrations"
-  }],
+  "d1_databases": [
+    {
+      "binding": "DB",
+      "database_name": "dalslandskoren-content",
+      "database_id": "7b05dbee-f286-4304-99c3-49629c0b05f9",
+      "migrations_dir": "migrations"
+    }
+  ],
   "vars": {
     "PUBLIC_ORIGIN": "https://dalslandskoren.se",
     "ADMIN_ORIGIN": "https://admin.dalslandskoren.se",
     "ACCESS_TEAM_DOMAIN": "",
     "ACCESS_AUD": "",
     "EDITOR_EMAILS": "dalslandskorenblaklang@gmail.com"
-  }
+  },
+  "account_id": "3c27342e2aebba74d1a0e503d92c324b"
 }

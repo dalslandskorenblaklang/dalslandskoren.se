@@ -2,7 +2,7 @@
 
 This is the one-time setup for the website owner/web maintainer. The PR team only needs the [editing guide](REDAKTOR.md) afterwards.
 
-The code is ready locally. Publishing requires your choir-owned GitHub and Cloudflare accounts and access to Strato. No account was created and no domain setting was changed during the migration. Do not send passwords, login codes or API secrets in chat.
+This page documents setup and future redeployment. For completed steps and remaining launch work, see [launch status](LAUNCH.md). Use the configured Cloudflare account and the existing `dalslandskorenblaklang/dalslandskoren.se` repository. Do not send passwords, login codes or API secrets in chat.
 
 ## 1. Create the choir's accounts
 

@@ -9,7 +9,7 @@ The Lovable design, rebuilt as an independently hosted Swedish website with a vi
 - **Login:** Cloudflare Access with email codes and an explicit editor allowlist
 - **Source and code deployments:** GitHub → Cloudflare Workers Builds
 
-**Status:** implemented and locally testable. No GitHub repository, Cloudflare account, remote database or DNS changes have been created by this migration. The database ID and Access settings are intentional placeholders until the choir's accounts are ready.
+**Status:** publication in progress. Source has been pushed to `dalslandskorenblaklang/dalslandskoren.se`; the Cloudflare D1 database has been created, and the Cloudflare nameservers have been saved at Strato. Wrangler authorization, live deployment and editor sign-in are not yet complete. See [launch status](docs/LAUNCH.md).
 
 [Set up accounts, hosting and the Strato domain](docs/DEPLOYMENT.md) · [Swedish editing guide](docs/REDAKTOR.md) · [Architecture and API](docs/ARCHITECTURE.md)
 
