@@ -18,7 +18,7 @@
     "id": "hem",
     "title": "Dalslandskören",
     "secondaryTitle": "Blåklang",
-    "subtitle": "Sång, klang och gemenskap.",
+    "subtitle": "En ny kör har tagit ton på Värmlands nation! 🩵",
     "image": "/assets/images/hero-choir.webp",
     "imageAlt": "Illustrativ konceptbild av en kör utomhus",
     "imageIsConcept": true
@@ -26,7 +26,7 @@
   "about": {
     "id": "om-oss",
     "title": "Om oss",
-    "text": "Vi möts i musiken och skapar klang tillsammans. Välkommen att upptäcka Dalslandskören, våra konserter och möjligheten att sjunga med oss."
+    "text": "Dalslandskören Blåklang är en nystartad nationskör med höga musikaliska ambitioner. Gemenskapen och det sociala livet är minst lika viktiga delar av körverksamheten. För vad vore väl en nationskör utan köröl, sång och härligt umgänge?\n\nVår dirigent Joel Sarkadi Kristiansson studerar musik och dirigering på Lilla Akademien i Stockholm."
   },
   "concerts": {
     "id": "konserter",
@@ -38,19 +38,19 @@
   "openRehearsal": {
     "id": "oppet-rep",
     "title": "Öppet rep",
-    "text": "Nyfiken på att sjunga med oss? Hör av dig för att få veta mer om möjligheten att besöka en repetition.",
+    "text": "Vi repar på måndagar kl. 18–21 på Värmlands nation. Måndag den 14 december 2026 bjuder vi in till öppet rep kl. 18.30–20.30 på nationen. Kom och prova på! Ingen föranmälan krävs.",
     "cta": {
-      "label": "Kontakta oss",
-      "href": "#kontakt"
+      "label": "Läs om insjungning",
+      "href": "#uppsjungning"
     }
   },
   "audition": {
     "id": "uppsjungning",
-    "title": "Boka uppsjungning",
-    "text": "Vill du bli en del av Dalslandskören? Kontakta oss för att få veta mer om uppsjungning.",
+    "title": "Vill du vara med? 🩵",
+    "text": "Vi söker dig som har sångvana. Du behöver varken ha sjungit i kör tidigare eller kunna läsa noter. Vi söker sångare till alla stämmor: sopran, alt, tenor och bas. Fyll gärna i vårt ansökningsformulär. Vi ser fram emot att träffa dig och bygga kören tillsammans!",
     "cta": {
-      "label": "Kontakta oss om uppsjungning",
-      "href": "#kontakt"
+      "label": "Fyll i ansökningsformuläret",
+      "href": "https://docs.google.com/forms/d/e/1FAIpQLSeSTpieRmuJ0z_vRhew3GlgfrEGp_jNk-cizWcv4LFH3ZUkZA/viewform?usp=dialog"
     },
     "bookingUrl": null
   },
@@ -66,12 +66,16 @@
     "copyStatus": "editable-draft",
     "confirmedFacts": [
       "Choir name: Dalslandskören",
-      "Owner-selected logo file"
+      "Owner-selected logo file",
+      "New student choir at Värmlands nation, conducted by Joel Sarkadi Kristiansson",
+      "Rehearsals on Mondays 18:00–21:00 at Värmlands nation",
+      "Open rehearsal on 14 December 2026, 18:30–20:30, no advance registration",
+      "All four voice parts are recruiting through the supplied application form"
     ],
     "needsConfirmation": [
-      "Choir description, repertoire, location and any university affiliation",
+      "Choir repertoire",
       "Concert dates, venues and ticket links",
-      "Open rehearsal arrangements and audition process",
+      "An approved quote from the conductor, if one is added",
       "Contact email and social profile URL",
       "Real choir photograph to replace the concept hero"
     ],

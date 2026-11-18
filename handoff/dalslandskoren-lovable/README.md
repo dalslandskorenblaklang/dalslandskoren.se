@@ -2,6 +2,20 @@
 
 A curated merge of both supplied packs, with a shorter brief and one selected logo.
 
+## Material för fortsatt arbete i Lovable
+
+Använd [webbplatsens aktuella texter](../../src/content/site-content.json) när du arbetar vidare med det här repot i Lovable. Där finns presentationen av kören och dirigenten, repetitionstiderna och länken till ansökningsformuläret. Starttexterna längre ned hör till den ursprungliga demon. Ett dirigentcitat kan läggas till när det finns en godkänd formulering.
+
+| Referens | Innehåll |
+| --- | --- |
+| [Dalslandskörens logotyp](reference/choir-material/dalslandskoren-logotyp.png) | Rund DBK-logotyp med akvarellblommor på cremefärgad bakgrund. |
+| [Värmlands nations entré](reference/choir-material/varmlands-nation-entre.webp) | Foto av nationshuset från entrésidan. |
+| [Värmlands nations fasad](reference/choir-material/varmlands-nation-fasad.webp) | Foto av nationshuset med domkyrkans torn i bakgrunden. |
+| [Dalsland](reference/choir-material/dalsland-notblad.jpg) | Handskrivet notblad. |
+| [Affisch för öppet rep](reference/choir-material/oppet-rep-14-december.png) | Inbjudan till Värmlands nation den 14 december kl. 18.30–20.30, med information om att ingen föranmälan krävs. |
+
+Filerna är originalbilder för inspiration. Webbplatsens nuvarande [transparenta logotyp](../../public/assets/brand/dbk-circle-transparent.png) och [förgätmigej vid Om oss](../../public/assets/images/forget-me-not-sprig.png) finns under `public/assets/` i repots rot.
+
 ## Start here
 
 1. Unzip this folder. Copy `LOVABLE_PROMPT.md` into your Lovable chat.

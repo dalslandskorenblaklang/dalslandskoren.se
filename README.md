@@ -14,6 +14,8 @@ The Lovable design, rebuilt as an independently hosted Swedish website with a vi
 
 [Set up accounts, hosting and the Strato domain](docs/DEPLOYMENT.md) · [Swedish editing guide](docs/REDAKTOR.md) · [Architecture and API](docs/ARCHITECTURE.md)
 
+[Lovable handoff and choir reference material](handoff/dalslandskoren-lovable/README.md)
+
 ## Run locally
 
 Use Node.js 22.12 or newer.
