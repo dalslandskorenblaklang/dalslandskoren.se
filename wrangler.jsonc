@@ -20,6 +20,10 @@
       "custom_domain": true
     },
     {
+      "pattern": "dev.dalslandskoren.se",
+      "custom_domain": true
+    },
+    {
       "pattern": "admin.dalslandskoren.se",
       "custom_domain": true
     }
@@ -41,6 +45,7 @@
   ],
   "vars": {
     "PUBLIC_ORIGIN": "https://dalslandskoren.se",
+    "DEV_ORIGIN": "https://dev.dalslandskoren.se",
     "ADMIN_ORIGIN": "https://admin.dalslandskoren.se",
     "ACCESS_TEAM_DOMAIN": "",
     "ACCESS_AUD": "",

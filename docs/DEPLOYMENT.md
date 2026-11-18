@@ -101,20 +101,20 @@ This checks configuration, runs validation, applies remote D1 migrations and dep
 
 | Hostname | Result |
 | --- | --- |
-| `dalslandskoren.se` | Public website |
-| `www.dalslandskoren.se` | Redirect to the public website |
+| `dalslandskoren.se` | Temporary public contact page |
+| `www.dalslandskoren.se` | Redirect to the contact page |
+| `dev.dalslandskoren.se` | Choir website and content API |
 | `admin.dalslandskoren.se` | Access-protected editor |
 
 Cloudflare provisions DNS/certificates for Worker custom domains. Wait for them to become active. The production `workers.dev` address is enabled as a temporary working address while the Strato nameserver change propagates. Version preview URLs remain disabled. Set `workers_dev` to `false` and redeploy after the custom domain is verified if you want to remove the fallback address. The admin page and admin APIs also reject requests without a valid token independently of the front-door policy.
 
 Verify in a private browser window:
 
-1. Public website loads over HTTPS, including the new forget-me-not illustration beside “Om oss”.
+1. The contact page loads over HTTPS and offers the approved Instagram and mail links. The choir website on `dev` loads the forget-me-not illustration beside “Om oss”.
 2. The `www` hostname redirects to the main domain.
 3. The admin hostname asks for an email code; an unlisted address cannot enter.
-4. An allowed editor can change text, preview it, publish it and see it on a fresh public page load.
+4. An allowed editor can change text, preview it, publish it and see it on a fresh load of the choir website on `dev`.
 5. History contains the published version. Load an earlier version as a draft to verify recovery without publishing it.
-6. Account-only Gmail does not appear in public contact information.
 
 The supplied hero is still a labelled concept illustration. Replace it with an approved choir photo when one is available, and review the draft presentation and real contact/event details.
 

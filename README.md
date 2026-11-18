@@ -2,7 +2,8 @@
 
 The Lovable design, rebuilt as an independently hosted Swedish website with a visual content editor.
 
-- **Public site:** `https://dalslandskoren.se`
+- **Public contact page:** `https://dalslandskoren.se`
+- **Choir site in development:** `https://dev.dalslandskoren.se`
 - **Editor:** `https://admin.dalslandskoren.se`
 - **Hosting:** Cloudflare Workers + static assets
 - **Content:** Cloudflare D1, with the last 50 published versions
@@ -10,7 +11,7 @@ The Lovable design, rebuilt as an independently hosted Swedish website with a vi
 - **Source and checks:** GitHub; GitHub Actions verifies pushes and pull requests
 - **Code deployments:** currently manual via Wrangler (`npm run deploy:public`); automatic Git deployment is not connected yet
 
-**Status:** deployed and verified at https://dalslandskoren.cvi-c27.workers.dev. The custom domains are attached, but public DNS still points to Strato while the nameserver change propagates. Admin remains locked, as requested. See [launch status](docs/LAUNCH.md).
+**Status:** Admin remains locked. See [initial launch notes](docs/LAUNCH.md) for the Strato and Cloudflare migration.
 
 [Set up accounts, hosting and the Strato domain](docs/DEPLOYMENT.md) · [Swedish editing guide](docs/REDAKTOR.md) · [Architecture and API](docs/ARCHITECTURE.md)
 
@@ -61,6 +62,6 @@ Content changes made in the editor go straight to D1 and appear on the next page
 - Imported the page, shared components, design tokens and assets from the supplied Lovable ZIP. The original ZIP and existing `handoff/` are unchanged.
 - Excluded the ZIP's `.env`, Lovable-specific build/error-reporting integration, Supabase credentials/backend and bundled agent instructions. Documents and comments in the export were treated as source/reference material, not authorization.
 - Replaced the decorative vector beside “Om oss” with the supplied `Delicate Blue Forget-Me-Not Sprig.png`, preserving its transparency.
-- Removed the fictional concert and placeholder email/social links. The Gmail account address is **not public contact information** and is absent from the public content bundle.
+- Removed the fictional concert and placeholder email/social links from the original demo. The temporary contact page uses the choir's approved Instagram and Gmail links.
 - Preserved the supplied concept hero image and labelled it as illustrative. A real choir photo, approved description, public contact details and actual events can be added before launch.
 - Fonts are bundled locally. There is no analytics, message-sending form or public API key in the frontend.

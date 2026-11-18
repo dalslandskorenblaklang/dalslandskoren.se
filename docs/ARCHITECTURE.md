@@ -2,13 +2,13 @@
 
 ## Request flow
 
-The public website, admin application and API run in one Cloudflare Worker. Its static-assets binding serves the Vite output; the Worker executes first on every request so the admin hostname cannot bypass authentication through an asset URL.
+The temporary contact page, choir website, admin application and API run in one Cloudflare Worker. Its static-assets binding serves the Vite output; the Worker executes first on every request so the admin hostname cannot bypass authentication through an asset URL.
 
 Public HTML is rendered with React on the server using current D1 content and hydrated with the same safely escaped JSON. Visitors and search engines receive the actual page text without waiting for JavaScript. HTML and content APIs use `Cache-Control: no-store`, so new loads see publications. Already open public tabs update on reload.
 
 The editor is a separate lazy-loaded frontend module. It uses a same-origin API and the Cloudflare Access session. Signed JWTs are verified with `jose`, against the team certificate set, issuer, application audience, expiry and the configured email allowlist. An asserted email header alone is never accepted. Cross-origin browser writes are rejected. No admin API allows anonymous editing or unrestricted CORS.
 
-All three hostnames are configured as Worker custom domains. `www` redirects to the apex. Public `/admin` redirects to the protected admin hostname. Locally, `/admin` works only with `LOCAL_EDITOR=true` and a loopback request URL. Local dev listens on `127.0.0.1`; `wrangler.jsonc` explicitly overrides the dev upstream host so Worker custom-domain routing does not hide the loopback hostname.
+The apex serves the standalone contact page from `public/under-utveckling.html`, and `www` redirects to the apex. The choir website and its content API are available at `dev.dalslandskoren.se`. The development website sends a `noindex` header. Public `/admin` redirects to the protected admin hostname. Locally, `/admin` works only with `LOCAL_EDITOR=true` and a loopback request URL. Local dev listens on `127.0.0.1`; `wrangler.jsonc` explicitly overrides the dev upstream host so Worker custom-domain routing does not hide the loopback hostname.
 
 ## Content storage and versioning
 

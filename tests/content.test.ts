@@ -28,8 +28,14 @@ beforeEach(() => {
   };
   env = {
     DB: binding as unknown as D1Database,
-    ASSETS: { fetch: async () => new Response('<html><head><title>old</title><!--site-meta--></head><body><div id="root"></div><!--site-data--></body></html>') } as unknown as Fetcher,
-    PUBLIC_ORIGIN: "https://dalslandskoren.se", ADMIN_ORIGIN: "https://admin.dalslandskoren.se", LOCAL_EDITOR: "true",
+    ASSETS: { async fetch(request: Request) {
+      if (new URL(request.url).pathname === "/under-utveckling.html") return new Response(readFileSync("public/under-utveckling.html", "utf8"), { headers: { "Content-Type": "text/html; charset=utf-8" } });
+      return new Response('<html><head><title>old</title><!--site-meta--></head><body><div id="root"></div><!--site-data--></body></html>');
+    } } as unknown as Fetcher,
+    PUBLIC_ORIGIN: "https://dalslandskoren.se",
+    DEV_ORIGIN: "https://dev.dalslandskoren.se",
+    ADMIN_ORIGIN: "https://admin.dalslandskoren.se",
+    LOCAL_EDITOR: "true",
   };
 });
 afterEach(() => { db.close(); vi.restoreAllMocks(); });
@@ -74,6 +80,30 @@ describe("content publication", () => {
 });
 
 describe("access and rendering", () => {
+  it("serves the contact page on the main domain and the choir site on dev", async () => {
+    const landing = await worker.fetch(new Request(env.PUBLIC_ORIGIN), env);
+    expect(landing.status).toBe(200);
+    expect(landing.headers.has("X-Robots-Tag")).toBe(false);
+    const html = await landing.text();
+    expect(html).toContain("Hemsidan är under utveckling!");
+    expect(html).toContain('href="https://www.instagram.com/dalslandskoren/"');
+    expect(html).toContain('href="mailto:dalslandskorenblaklang@gmail.com"');
+    expect(html).not.toContain("site-data");
+    const www = await worker.fetch(new Request("https://www.dalslandskoren.se/"), env);
+    expect(www.status).toBe(301);
+    expect(www.headers.get("Location")).toBe(env.PUBLIC_ORIGIN + "/");
+    const oldApi = await worker.fetch(new Request(env.PUBLIC_ORIGIN + "/api/public/content"), env);
+    expect(oldApi.status).toBe(404);
+
+    const preview = await worker.fetch(new Request(env.DEV_ORIGIN), env);
+    expect(preview.status).toBe(200);
+    expect(preview.headers.get("X-Robots-Tag")).toContain("noindex");
+    const previewHtml = await preview.text();
+    expect(previewHtml).toContain(site.hero.subtitle);
+    expect(previewHtml).toContain(`rel="canonical" href="${env.DEV_ORIGIN}/"`);
+    const previewApi = await worker.fetch(new Request(env.DEV_ORIGIN + "/api/public/content"), env);
+    expect(previewApi.status).toBe(200);
+  });
   it("fails closed without configured login, ignores spoofed email headers and gates admin assets", async () => {
     delete env.LOCAL_EDITOR;
     expect((await write(site, 0)).status).toBe(401);
@@ -82,7 +112,7 @@ describe("access and rendering", () => {
       expect(response.status).toBe(401);
     }
     env.LOCAL_EDITOR = "true";
-    expect((await worker.fetch(new Request("https://dalslandskoren.se/api/public/content", { method: "PUT", body: "{}" }), env)).status).toBe(401);
+    expect((await worker.fetch(new Request(env.DEV_ORIGIN + "/api/public/content", { method: "PUT", body: "{}" }), env)).status).toBe(401);
   });
   it("supports optional machine keys but rejects cross-origin browser writes", async () => {
     delete env.LOCAL_EDITOR; env.SITE_CONTENT_API_KEY = "test-server-key";

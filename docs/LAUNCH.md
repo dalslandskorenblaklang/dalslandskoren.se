@@ -1,5 +1,7 @@
 # Launch status — 10 November 2026
 
+This page records the initial launch. See the [deployment guide](DEPLOYMENT.md) for the current hostname layout.
+
 The website is deployed and works over HTTPS at:
 
 **https://dalslandskoren.cvi-c27.workers.dev**

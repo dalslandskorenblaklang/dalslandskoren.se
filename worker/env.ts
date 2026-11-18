@@ -2,6 +2,7 @@ export interface Env {
   ASSETS: Fetcher;
   DB: D1Database;
   PUBLIC_ORIGIN: string;
+  DEV_ORIGIN: string;
   ADMIN_ORIGIN: string;
   ACCESS_TEAM_DOMAIN?: string;
   ACCESS_AUD?: string;

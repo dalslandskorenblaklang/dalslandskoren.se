@@ -8,6 +8,8 @@ import { editorIdentity, writeIdentity, isLocalEditor, isLoopback } from "./auth
 import type { Env } from "./env";
 
 const json = (data: unknown, status = 200) => Response.json(data, { status, headers: { "Cache-Control": "no-store" } });
+const notFound = () => new Response("Sidan finns inte.", { status: 404, headers: { "Content-Type": "text/plain; charset=utf-8" } });
+const holdingPagePath = "/under-utveckling.html";
 const escapeHtml = (value: string) => value.replace(/[&<>"']/g, c => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" }[c]!));
 export const safeJson = (data: unknown) => JSON.stringify(data).replace(/</g, "\\u003c").replace(/\u2028/g, "\\u2028").replace(/\u2029/g, "\\u2029");
 
@@ -57,7 +59,17 @@ async function route(request: Request, env: Env): Promise<Response> {
   const isAdminHost = url.origin === env.ADMIN_ORIGIN;
   const isLocal = isLoopback(url);
   const adminPage = isAdminHost || (isLocal && url.pathname.startsWith("/admin"));
-  if (url.hostname === `www.${new URL(env.PUBLIC_ORIGIN).hostname}`) return Response.redirect(`${env.PUBLIC_ORIGIN}${url.pathname}${url.search}`, 301);
+  const publicHost = new URL(env.PUBLIC_ORIGIN).hostname;
+  if (url.hostname === `www.${publicHost}`) return Response.redirect(`${env.PUBLIC_ORIGIN}${url.pathname}${url.search}`, 301);
+  if (url.hostname === publicHost) {
+    if (url.protocol !== "https:") return Response.redirect(`${env.PUBLIC_ORIGIN}${url.pathname}${url.search}`, 301);
+    if (!["GET", "HEAD"].includes(request.method)) return json({ error: "Metoden stöds inte." }, 405);
+    if (url.pathname === "/index.html") return Response.redirect(env.PUBLIC_ORIGIN + "/", 301);
+    if (url.pathname === "/admin") return Response.redirect(env.ADMIN_ORIGIN, 302);
+    if (url.pathname === "/") return env.ASSETS.fetch(new Request(new URL(holdingPagePath, url), request));
+    if (["/favicon.png", "/robots.txt", "/sitemap.xml"].includes(url.pathname)) return env.ASSETS.fetch(request);
+    return notFound();
+  }
 
   // Validate signed Access tokens even if an alternate route bypasses the Access front door.
   if (isAdminHost && !await editorIdentity(request, env)) {
@@ -84,6 +96,8 @@ async function route(request: Request, env: Env): Promise<Response> {
   if (!["GET", "HEAD"].includes(request.method)) return json({ error: "Metoden stöds inte." }, 405);
   if (url.pathname === "/index.html") return Response.redirect(`${url.origin}/`, 301);
   if (!isLocal && !isAdminHost && url.pathname === "/admin") return Response.redirect(env.ADMIN_ORIGIN, 302);
+  if (url.pathname === "/robots.txt") return new Response("User-agent: *\nDisallow: /api/\nDisallow: /admin\n", { headers: { "Content-Type": "text/plain; charset=utf-8" } });
+  if ([holdingPagePath, "/sitemap.xml"].includes(url.pathname)) return notFound();
 
   if (url.pathname === "/" || (adminPage && ["/admin", "/admin/"].includes(url.pathname))) {
     if (adminPage && !await editorIdentity(request, env)) return new Response("Lokal redigering är avstängd. Se .dev.vars.example.", { status: 401 });
@@ -103,16 +117,16 @@ async function route(request: Request, env: Env): Promise<Response> {
         .replace("<!--site-data-->", () => `<script id="site-data" type="application/json">${safeJson(record)}</script>`)
         .replace(/<title>.*?<\/title>/, () => `<title>${escapeHtml(title)}</title>`)
         .replace("<!--site-meta-->", () => `<meta name="description" content="${escapeHtml(description)}" />
-          <link rel="canonical" href="${escapeHtml(env.PUBLIC_ORIGIN)}/" />
+          <link rel="canonical" href="${escapeHtml(env.DEV_ORIGIN)}/" />
           <meta property="og:title" content="${escapeHtml(title)}" /><meta property="og:description" content="${escapeHtml(description)}" />
-          <meta property="og:type" content="website" /><meta property="og:url" content="${escapeHtml(env.PUBLIC_ORIGIN)}/" />
-          <meta property="og:locale" content="sv_SE" /><meta property="og:image" content="${escapeHtml(new URL(c.hero.image, env.PUBLIC_ORIGIN).href)}" />
+          <meta property="og:type" content="website" /><meta property="og:url" content="${escapeHtml(env.DEV_ORIGIN)}/" />
+          <meta property="og:locale" content="sv_SE" /><meta property="og:image" content="${escapeHtml(new URL(c.hero.image, env.DEV_ORIGIN).href)}" />
           <meta name="twitter:card" content="summary_large_image" />`);
     }
     return new Response(html, { headers: { "Content-Type": "text/html; charset=utf-8", "Cache-Control": "no-store" } });
   }
   const asset = await env.ASSETS.fetch(request);
-  if (asset.status === 404) return new Response("Sidan finns inte.", { status: 404, headers: { "Content-Type": "text/plain; charset=utf-8" } });
+  if (asset.status === 404) return notFound();
   return asset;
 }
 
@@ -127,8 +141,9 @@ export default {
     headers.set("X-Frame-Options", "DENY");
     headers.set("Permissions-Policy", "camera=(), microphone=(), geolocation=()");
     headers.set("Content-Security-Policy", "default-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline'; img-src 'self' https: data:; font-src 'self'; connect-src 'self'; frame-ancestors 'none'; base-uri 'none'; form-action 'self'; object-src 'none'");
-    if (new URL(request.url).protocol === "https:") headers.set("Strict-Transport-Security", "max-age=31536000");
-    if (new URL(request.url).origin === env.ADMIN_ORIGIN || new URL(request.url).pathname.startsWith("/admin")) headers.set("X-Robots-Tag", "noindex, nofollow");
+    const url = new URL(request.url);
+    if (url.protocol === "https:") headers.set("Strict-Transport-Security", "max-age=31536000");
+    if (url.origin !== env.PUBLIC_ORIGIN || url.pathname.startsWith("/admin")) headers.set("X-Robots-Tag", "noindex, nofollow");
     return new Response(request.method === "HEAD" ? null : response.body, { status: response.status, statusText: response.statusText, headers });
   },
 };
