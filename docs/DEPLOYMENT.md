@@ -97,7 +97,7 @@ npm ci
 npm run deploy
 ```
 
-This checks configuration, runs validation, applies remote D1 migrations and deploys the contact and editor Worker. Use `npm run deploy:dev` to deploy the development site independently.
+This checks configuration, runs validation, applies remote D1 migrations and deploys the contact and editor Worker. The development site builds separately from the Lovable-linked repository.
 
 | Hostname | Worker | Result |
 | --- | --- | --- |
@@ -113,29 +113,27 @@ Verify in a private browser window:
 1. The contact page loads over HTTPS and offers the approved Instagram and mail links. The choir website on `dev` loads the forget-me-not illustration beside “Om oss”.
 2. The `www` hostname redirects to the main domain.
 3. The admin hostname asks for an email code; an unlisted address cannot enter.
-4. An allowed editor can change text, preview it, publish it and see it on a fresh load of the choir website on `dev`.
+4. An allowed editor can change text, preview it and save it to D1. Updates to the choir website on `dev` come from the Lovable repository.
 5. History contains the published version. Load an earlier version as a draft to verify recovery without publishing it.
 
 The supplied hero is still a labelled concept illustration. Replace it with an approved choir photo when one is available, and review the draft presentation and real contact/event details.
 
 ## 6. Connect Lovable and automate deployments to dev
 
-In the Lovable project, open **Project settings → Git → GitHub**. Use the repository shown under **View on GitHub**. When you connect an unlinked project, Lovable creates a new repository. The branch shown in that panel is the branch Lovable updates.
+The Lovable project syncs to [`issssse/dalslandsk-ren-portfolio`](https://github.com/issssse/dalslandsk-ren-portfolio) on `main`. Its root Wrangler config targets the development Worker and domain.
 
-Before wiring up deployment, bring the current development site's source and build configuration into the Lovable-linked repository. Review any newer Lovable changes first. If the linked repository has its own root Wrangler config, it should target only the development Worker and domain, following `wrangler.dev.jsonc` in this repository.
-
-In Cloudflare, open **Workers & Pages → dalslandskoren-dev → Settings → Builds → Connect**. Authorize the Cloudflare GitHub App for the Lovable-linked repository and select the branch shown in Lovable. Disable builds from other branches.
+In Cloudflare, open **Workers & Pages → dalslandskoren-dev → Settings → Builds → Connect**. Authorize the Cloudflare GitHub App for that repository and select `main`. Disable builds from other branches.
 
 Use these commands:
 
 | Build setting | Value |
 | --- | --- |
-| Build command | `npm run check && npm test && npm run build` for the current choir site |
-| Deploy command | `npx wrangler deploy` with the development Worker as the root config |
+| Build command | `npm test && npm run build` |
+| Deploy command | `npx --yes wrangler@4.159.0 deploy` |
 | Root directory | Repository root |
-| Node version | 22 or newer supported LTS |
+| Node and Bun versions | Pinned in the Lovable repository |
 
-Keep deployment credentials in Cloudflare. The development build only needs to publish the development Worker. Apply D1 migrations separately from the authenticated maintainer terminal. The contact page and editor have their own manual deployment.
+The development Worker uses the content in `src/content/site-content.json` from the Lovable repository. The contact page and editor have their own manual deployment. The editor's D1 store belongs to the admin Worker.
 
 References: [Lovable Git integration](https://docs.lovable.dev/integrations/github) and [Cloudflare Workers build configuration](https://developers.cloudflare.com/workers/ci-cd/builds/configuration/).
 

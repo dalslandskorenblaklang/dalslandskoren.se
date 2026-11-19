@@ -9,7 +9,8 @@ The Lovable design, rebuilt as an independently hosted Swedish website with a vi
 - **Content:** Cloudflare D1, with the last 50 published versions
 - **Login:** Cloudflare Access with email codes and an explicit editor allowlist
 - **Source and checks:** GitHub; GitHub Actions verifies pushes and pull requests
-- **Code deployments:** `npm run deploy:dev` updates the development site. `npm run deploy:public` updates the contact and locked editor Worker. See the [deployment guide](docs/DEPLOYMENT.md#6-connect-lovable-and-automate-deployments-to-dev) for Git integration.
+- **Development source:** [Lovable's GitHub repository](https://github.com/issssse/dalslandsk-ren-portfolio) builds the development Worker. See the [deployment guide](docs/DEPLOYMENT.md#6-connect-lovable-and-automate-deployments-to-dev).
+- **Contact page deployments:** `npm run deploy:public` updates the contact and locked editor Worker from this repository.
 
 **Status:** Admin remains locked. See [initial launch notes](docs/LAUNCH.md) for the Strato and Cloudflare migration.
 
@@ -53,10 +54,9 @@ tests/                    Authentication, data integrity and browser tests
 handoff/                  Earlier design brief/assets, retained as reference
 .github/workflows/        Checks on pushes and pull requests
 wrangler.jsonc            Contact and editor Worker configuration
-wrangler.dev.jsonc        Development Worker configuration
 ```
 
-Content changes made in the editor go straight to D1 and appear on the next page load. They do not require a Git commit or redeployment. Once a live version has been saved, `src/content/site-content.json` becomes the initial/reset version; editing that file alone does not overwrite live content. Design/code changes continue to deploy from GitHub.
+The editor's saved versions live in D1. To change `dev.dalslandskoren.se`, edit the Lovable project or its synced GitHub repository. The temporary contact page lives in `public/under-utveckling.html` in this repository.
 
 ## Migration notes
 

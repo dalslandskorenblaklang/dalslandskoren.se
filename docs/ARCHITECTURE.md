@@ -2,13 +2,13 @@
 
 ## Request flow
 
-The contact page and admin application run on the `dalslandskoren` Worker. The `dalslandskoren-dev` Worker serves the choir website and its public API. Both use the same D1 content store and can be deployed independently. Each Worker executes before its static-assets binding so hostname routing and editor authentication also apply to asset requests.
+The contact page and admin application run on the `dalslandskoren` Worker from this repository. The `dalslandskoren-dev` Worker builds and serves the choir website and its read-only content API from [Lovable's GitHub repository](https://github.com/issssse/dalslandsk-ren-portfolio). Its content comes from that repository on each deployment. The admin Worker still uses D1 and executes before its static-assets binding so editor authentication also applies to asset requests.
 
-Public HTML is rendered with React on the server using current D1 content and hydrated with the same safely escaped JSON. Visitors and search engines receive the actual page text without waiting for JavaScript. HTML and content APIs use `Cache-Control: no-store`, so new loads see publications. Already open public tabs update on reload.
+The contact page is standalone HTML. This repository's React site preview reads D1 on the server and hydrates with the same safely escaped JSON. HTML and content APIs use `Cache-Control: no-store`, so new preview loads see the latest saved version.
 
 The editor is a separate lazy-loaded frontend module. It uses a same-origin API and the Cloudflare Access session. Signed JWTs are verified with `jose`, against the team certificate set, issuer, application audience, expiry and the configured email allowlist. An asserted email header alone is never accepted. Cross-origin browser writes are rejected. No admin API allows anonymous editing or unrestricted CORS.
 
-The apex serves the standalone contact page from `public/under-utveckling.html`, and `www` redirects to the apex. The choir website and its content API are available at `dev.dalslandskoren.se`. The development website sends a `noindex` header. Public `/admin` redirects to the protected admin hostname. Locally, `/admin` works only with `LOCAL_EDITOR=true` and a loopback request URL. Local dev listens on `127.0.0.1`; `wrangler.jsonc` explicitly overrides the dev upstream host so Worker custom-domain routing does not hide the loopback hostname.
+The apex serves the standalone contact page from `public/under-utveckling.html`, and `www` redirects to the apex. The development website sends a `noindex` header. The apex's `/admin` redirects to the protected admin hostname. Locally, `/admin` works only with `LOCAL_EDITOR=true` and a loopback request URL. Local dev listens on `127.0.0.1`; `wrangler.jsonc` explicitly overrides the dev upstream host so Worker custom-domain routing does not hide the loopback hostname.
 
 ## Content storage and versioning
 
@@ -21,6 +21,8 @@ Loading history in the editor only changes its local draft. Publication still us
 Only public website content belongs in the content document. Do not put passwords or keys in text fields, editorial notes or image URLs. The JSON is delivered to visitors. Editor emails/timestamps in version history are restricted to admin APIs.
 
 ## API
+
+This section describes the D1 API for the editor Worker and local preview. The API on `dev.dalslandskoren.se` is read-only and returns the currently deployed Git content.
 
 ### `GET /api/public/content`
 
