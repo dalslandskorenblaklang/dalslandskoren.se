@@ -2,7 +2,7 @@
 
 ## Request flow
 
-The temporary contact page, choir website, admin application and API run in one Cloudflare Worker. Its static-assets binding serves the Vite output; the Worker executes first on every request so the admin hostname cannot bypass authentication through an asset URL.
+The contact page and admin application run on the `dalslandskoren` Worker. The `dalslandskoren-dev` Worker serves the choir website and its public API. Both use the same D1 content store and can be deployed independently. Each Worker executes before its static-assets binding so hostname routing and editor authentication also apply to asset requests.
 
 Public HTML is rendered with React on the server using current D1 content and hydrated with the same safely escaped JSON. Visitors and search engines receive the actual page text without waiting for JavaScript. HTML and content APIs use `Cache-Control: no-store`, so new loads see publications. Already open public tabs update on reload.
 

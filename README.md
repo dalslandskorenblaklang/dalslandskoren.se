@@ -5,11 +5,11 @@ The Lovable design, rebuilt as an independently hosted Swedish website with a vi
 - **Public contact page:** `https://dalslandskoren.se`
 - **Choir site in development:** `https://dev.dalslandskoren.se`
 - **Editor:** `https://admin.dalslandskoren.se`
-- **Hosting:** Cloudflare Workers + static assets
+- **Hosting:** Separate Cloudflare Workers for the development site and the contact page
 - **Content:** Cloudflare D1, with the last 50 published versions
 - **Login:** Cloudflare Access with email codes and an explicit editor allowlist
 - **Source and checks:** GitHub; GitHub Actions verifies pushes and pull requests
-- **Code deployments:** currently manual via Wrangler (`npm run deploy:public`); automatic Git deployment is not connected yet
+- **Code deployments:** `npm run deploy:dev` updates the development site. `npm run deploy:public` updates the contact and locked editor Worker. See the [deployment guide](docs/DEPLOYMENT.md#6-connect-lovable-and-automate-deployments-to-dev) for Git integration.
 
 **Status:** Admin remains locked. See [initial launch notes](docs/LAUNCH.md) for the Strato and Cloudflare migration.
 
@@ -52,7 +52,8 @@ docs/                     Deployment, editing and architecture guides
 tests/                    Authentication, data integrity and browser tests
 handoff/                  Earlier design brief/assets, retained as reference
 .github/workflows/        Checks on pushes and pull requests
-wrangler.jsonc            Cloudflare domains, bindings and non-secret configuration
+wrangler.jsonc            Contact and editor Worker configuration
+wrangler.dev.jsonc        Development Worker configuration
 ```
 
 Content changes made in the editor go straight to D1 and appear on the next page load. They do not require a Git commit or redeployment. Once a live version has been saved, `src/content/site-content.json` becomes the initial/reset version; editing that file alone does not overwrite live content. Design/code changes continue to deploy from GitHub.

@@ -97,14 +97,14 @@ npm ci
 npm run deploy
 ```
 
-This checks configuration, runs validation, applies remote D1 migrations and deploys the Worker with these custom domains:
+This checks configuration, runs validation, applies remote D1 migrations and deploys the contact and editor Worker. Use `npm run deploy:dev` to deploy the development site independently.
 
-| Hostname | Result |
-| --- | --- |
-| `dalslandskoren.se` | Temporary public contact page |
-| `www.dalslandskoren.se` | Redirect to the contact page |
-| `dev.dalslandskoren.se` | Choir website and content API |
-| `admin.dalslandskoren.se` | Access-protected editor |
+| Hostname | Worker | Result |
+| --- | --- | --- |
+| `dalslandskoren.se` | `dalslandskoren` | Temporary public contact page |
+| `www.dalslandskoren.se` | `dalslandskoren` | Redirect to the contact page |
+| `dev.dalslandskoren.se` | `dalslandskoren-dev` | Choir website and content API |
+| `admin.dalslandskoren.se` | `dalslandskoren` | Access-protected editor |
 
 Cloudflare provisions DNS/certificates for Worker custom domains. Wait for them to become active. The production `workers.dev` address is enabled as a temporary working address while the Strato nameserver change propagates. Version preview URLs remain disabled. Set `workers_dev` to `false` and redeploy after the custom domain is verified if you want to remove the fallback address. The admin page and admin APIs also reject requests without a valid token independently of the front-door policy.
 
@@ -118,28 +118,26 @@ Verify in a private browser window:
 
 The supplied hero is still a labelled concept illustration. Replace it with an approved choir photo when one is available, and review the draft presentation and real contact/event details.
 
-## 6. Connect GitHub for subsequent code deployments
+## 6. Connect Lovable and automate deployments to dev
 
-This integration is not connected at launch. Git pushes currently run verification only. Until connected, publish code changes from the authenticated maintainer terminal with `npm run deploy:public` while admin is locked.
+In the Lovable project, open **Project settings → Git → GitHub**. Use the repository shown under **View on GitHub**. When you connect an unlinked project, Lovable creates a new repository. The branch shown in that panel is the branch Lovable updates.
 
-In the deployed Worker's **Settings → Build**, connect the private choir repository and choose `main` as the production branch. Restrict the GitHub installation to the intended repository.
+Before wiring up deployment, bring the current development site's source and build configuration into the Lovable-linked repository. Review any newer Lovable changes first. If the linked repository has its own root Wrangler config, it should target only the development Worker and domain, following `wrangler.dev.jsonc` in this repository.
+
+In Cloudflare, open **Workers & Pages → dalslandskoren-dev → Settings → Builds → Connect**. Authorize the Cloudflare GitHub App for the Lovable-linked repository and select the branch shown in Lovable. Disable builds from other branches.
 
 Use these commands:
 
 | Build setting | Value |
 | --- | --- |
-| Build command | `npm run deploy:check -- --public-only && npm run verify` while admin is locked; use `npm run deploy:check && npm run verify` after Access is configured |
-| Deploy command | `npm run db:remote && npx wrangler deploy` |
+| Build command | `npm run check && npm test && npm run build` for the current choir site |
+| Deploy command | `npx wrangler deploy` with the development Worker as the root config |
 | Root directory | Repository root |
 | Node version | 22 or newer supported LTS |
 
-Use Cloudflare's managed build credential with the permissions needed for this Worker and D1 migrations. Keep this in Cloudflare, not in GitHub source or a `VITE_` environment variable. If an explicitly scoped token is required by the account setup, grant only the Worker/D1/zone access needed for the commands.
+Keep deployment credentials in Cloudflare. The development build only needs to publish the development Worker. Apply D1 migrations separately from the authenticated maintainer terminal. The contact page and editor have their own manual deployment.
 
-For the initial setup, disable automatic builds on other branches. This repository has one production D1 binding; preview deployments must not share it for editable staging. Create separate bindings and Access configuration before adding a staging environment.
-
-Commit and push the real D1/Access configuration after the first deployment. Cloudflare can then deploy future pushes. GitHub Actions runs a separate verification workflow without production credentials. PR-team content publications remain in D1 and are unaffected by code deployments.
-
-Reference: [Workers Git integration](https://developers.cloudflare.com/workers/ci-cd/builds/) and [build/deploy configuration](https://developers.cloudflare.com/workers/ci-cd/builds/configuration/).
+References: [Lovable Git integration](https://docs.lovable.dev/integrations/github) and [Cloudflare Workers build configuration](https://developers.cloudflare.com/workers/ci-cd/builds/configuration/).
 
 ## Optional API key
 

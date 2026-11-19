@@ -20,10 +20,6 @@
       "custom_domain": true
     },
     {
-      "pattern": "dev.dalslandskoren.se",
-      "custom_domain": true
-    },
-    {
       "pattern": "admin.dalslandskoren.se",
       "custom_domain": true
     }
